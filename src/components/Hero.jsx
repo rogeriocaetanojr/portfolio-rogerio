@@ -23,7 +23,7 @@ export function Hero() {
   return (
     <section id="inicio" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', textAlign: 'center', scrollMarginTop: '100px', padding: '0.8rem 5vw 0' }}>
       <div style={{ width: '100%', display: 'flex', flexDirection: 'column', flex: 1 }}>
-        <h1 className="titulo-gradiente" style={{ fontSize: 'clamp(2.5rem, 10vw, 8rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: '0.5rem', letterSpacing: '-0.04em', flexShrink: 0 }}>
+        <h1 className="titulo-gradiente" style={{ fontSize: 'clamp(2.5rem, 9vw, 8rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: '0.5rem', letterSpacing: '-0.04em', flexShrink: 0 }}>
           OI, EU SOU O ROGÉRIO
         </h1>
         <div 

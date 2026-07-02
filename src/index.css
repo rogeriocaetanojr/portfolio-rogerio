@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 90%;
+}
+
 html, body, #root {
   background-color: #0C0C0C;
   font-family: 'Kanit', sans-serif;
