@@ -16,7 +16,7 @@ export function Header() {
       <a href="#inicio" style={{ display: 'flex', alignItems: 'center' }}>
         <img src={logo} alt="Logo roger.io" style={{ height: '36px', objectFit: 'contain' }} />
       </a>
-      <div style={{ display: 'flex', gap: '1.5rem' }}>
+      <div style={{ display: 'flex', gap: '2rem', fontSize: '1.15rem' }}>
         <a href="#sobre">Sobre</a>
         <a href="#projetos">Projetos</a>
         <a href="#contato">Contato</a>
