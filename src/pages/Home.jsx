@@ -12,7 +12,7 @@ export function Home() {
           scroll-behavior: smooth;
         }
       `}</style>
-      <main style={{ maxWidth: '800px', margin: '0 auto', padding: '0 2rem' }}>
+      <main>
         <Header />
         <Hero />
         <About />

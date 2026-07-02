@@ -6,7 +6,7 @@ export function Header() {
       display: 'flex', 
       justifyContent: 'space-between', 
       alignItems: 'center', 
-      padding: '2rem 0', 
+      padding: '2rem 5vw', 
       borderBottom: '1px solid #222',
       position: 'sticky',
       top: 0,
