@@ -5,10 +5,10 @@ export function Header() {
       justifyContent: 'space-between', 
       alignItems: 'center', 
       padding: '2rem 0', 
-      borderBottom: '1px solid #ccc',
+      borderBottom: '1px solid #222',
       position: 'sticky',
       top: 0,
-      backgroundColor: '#fff',
+      backgroundColor: '#0C0C0C',
       zIndex: 10
     }}>
       <a href="#inicio" style={{ fontWeight: 'bold', textDecoration: 'none', color: 'inherit' }}>LOGO</a>
