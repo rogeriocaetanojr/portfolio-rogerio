@@ -2,7 +2,7 @@ import { FaWhatsapp, FaLinkedin, FaEnvelope, FaGithub } from 'react-icons/fa'
 
 export function Contact() {
   return (
-    <section id="contato" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', padding: '120px 5vw 4rem', scrollMarginTop: '100px' }}>
+    <section id="contato" style={{ minHeight: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', padding: '60px 5vw 6rem', scrollMarginTop: '100px' }}>
       <div style={{ paddingLeft: '1.5rem', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
         <div>
           <h2>Contato</h2>
