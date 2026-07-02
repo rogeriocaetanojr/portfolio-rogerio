@@ -21,7 +21,7 @@ export function Hero() {
   }
 
   return (
-    <section id="inicio" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', textAlign: 'center', scrollMarginTop: '100px', padding: '0.8rem 5vw 0' }}>
+    <section id="inicio" style={{ position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', textAlign: 'center', scrollMarginTop: '100px', padding: '0.8rem 5vw 0' }}>
       <div style={{ width: '100%', display: 'flex', flexDirection: 'column', flex: 1 }}>
         <h1 className="titulo-gradiente" style={{ fontSize: 'clamp(2.5rem, 9vw, 8rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: '0.5rem', letterSpacing: '-0.04em', flexShrink: 0 }}>
           OI, EU SOU O ROGÉRIO
@@ -46,6 +46,20 @@ export function Hero() {
           </div>
         </div>
       </div>
+      <p style={{
+        position: 'absolute',
+        bottom: '20vh',
+        left: '5vw',
+        textAlign: 'left',
+        maxWidth: '350px',
+        color: '#9BA8B5',
+        fontSize: '1.15rem',
+        lineHeight: '1.6',
+        margin: 0,
+        zIndex: 10
+      }}>
+        Um futuro Engenheiro de Software apaixonado por desenvolvimento front-end e mobile.
+      </p>
     </section>
   )
 }
