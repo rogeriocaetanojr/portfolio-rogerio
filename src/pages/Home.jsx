@@ -1,7 +1,8 @@
 export function Home() {
   return (
-    <div>
-      <h1>Portfólio em construção</h1>
-    </div>
+    <main style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+      <h1>Rogério Caetano</h1>
+      <p>Criando meu portfólio.</p>
+    </main>
   )
 }
