@@ -1,8 +1,8 @@
+import { Home } from './pages/Home'
+
 function App() {
   return (
-    <div>
-      <h1>Meu Portfólio</h1>
-    </div>
+    <Home />
   )
 }
 
