@@ -1,3 +1,5 @@
+import logo from '../assets/logo.png'
+
 export function Header() {
   return (
     <nav style={{ 
@@ -11,7 +13,9 @@ export function Header() {
       backgroundColor: '#0C0C0C',
       zIndex: 10
     }}>
-      <a href="#inicio" style={{ fontWeight: 'bold', textDecoration: 'none', color: 'inherit' }}>LOGO</a>
+      <a href="#inicio" style={{ display: 'flex', alignItems: 'center' }}>
+        <img src={logo} alt="Logo roger.io" style={{ height: '36px', objectFit: 'contain' }} />
+      </a>
       <div style={{ display: 'flex', gap: '1.5rem' }}>
         <a href="#sobre">Sobre</a>
         <a href="#projetos">Projetos</a>
