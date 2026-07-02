@@ -9,9 +9,9 @@ export function Hero() {
     const centerX = rect.left + rect.width / 2
     const centerY = rect.top + rect.height / 2
     
-    // Sensibilidade máxima (divisor 1.5) e movimentos extremamentes livres
-    const x = (e.clientX - centerX) / 1.5
-    const y = (e.clientY - centerY) / 1.5
+    // Sensibilidade equilibrada (divisor 2)
+    const x = (e.clientX - centerX) / 2
+    const y = (e.clientY - centerY) / 2
     
     setPosition({ x, y })
   }
@@ -31,18 +31,19 @@ export function Hero() {
           onMouseLeave={handleMouseLeave}
           style={{ width: '100%', flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}
         >
-          <img 
-            src={caricatura} 
-            alt="Caricatura de Rogério Caetano" 
-            style={{ 
-              width: '100%', 
-              maxWidth: '450px', 
-              objectFit: 'contain',
-              transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
-              transition: 'transform 0.1s ease-out',
-              willChange: 'transform'
-            }} 
-          />
+          <div className="animacao-flutuacao" style={{ width: '100%', maxWidth: '450px', display: 'flex', justifyContent: 'center' }}>
+            <img 
+              src={caricatura} 
+              alt="Caricatura de Rogério Caetano" 
+              style={{ 
+                width: '100%', 
+                objectFit: 'contain',
+                transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
+                transition: 'transform 0.15s ease-out',
+                willChange: 'transform'
+              }} 
+            />
+          </div>
         </div>
       </div>
     </section>

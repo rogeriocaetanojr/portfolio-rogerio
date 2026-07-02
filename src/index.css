@@ -24,3 +24,15 @@ a {
   background-clip: text;
   color: transparent;
 }
+
+.animacao-flutuacao {
+  animation: float 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes float {
+  0% { transform: translate3d(0, 0, 0); }
+  33% { transform: translate3d(15px, -20px, 0); }
+  66% { transform: translate3d(-15px, 20px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
