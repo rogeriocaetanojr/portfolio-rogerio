@@ -41,3 +41,19 @@ a {
   66% { transform: translate3d(-15px, 20px, 0); }
   100% { transform: translate3d(0, 0, 0); }
 }
+
+.link-contato {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #D7E2EA;
+  font-size: 1.15rem;
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+  width: fit-content;
+}
+
+.link-contato:hover {
+  color: #FFF;
+  opacity: 0.7;
+}
