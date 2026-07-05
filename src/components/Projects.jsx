@@ -1,4 +1,5 @@
 import { ProjectCard } from './ProjectCard';
+import { ProjectCardMosaic } from './ProjectCardMosaic';
 import imgAlertas from '../assets/projects/eh-brewing/alertas.png';
 import imgHistorico from '../assets/projects/eh-brewing/historico.png';
 import imgLogin from '../assets/projects/eh-brewing/login.png';
@@ -19,11 +20,7 @@ export function Projects() {
         />
       </div>
       <div style={{ width: '100%', marginTop: '2rem' }}>
-        <ProjectCard
-          nome="Novo Projeto"
-          descricao="Descrição do projeto em breve."
-          imagens={[]}
-        />
+        <ProjectCardMosaic />
       </div>
     </section>
   )
