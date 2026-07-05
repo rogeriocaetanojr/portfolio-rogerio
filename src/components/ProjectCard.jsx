@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const ChevronLeft = ({ size = 24 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -32,7 +33,7 @@ export function ProjectCard({ nome, descricao, imagens }) {
 
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % imagens.length);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [imagens, currentIndex]);
@@ -85,21 +86,30 @@ export function ProjectCard({ nome, descricao, imagens }) {
           </button>
         )}
 
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', overflow: 'hidden' }}>
-          {getVisibleImages().map((img, index) => (
-            <img 
-              key={`${currentIndex}-${index}`} 
-              src={img} 
-              alt={`${nome} screenshot ${index + 1}`} 
-              style={{ 
-                width: 'auto', 
-                height: '320px',
-                borderRadius: '16px',
-                flexShrink: 0
-              }} 
-            />
-          ))}
-        </div>
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={currentIndex}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -30 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            style={{ display: 'flex', justifyContent: 'center', gap: '16px', overflow: 'hidden' }}
+          >
+            {getVisibleImages().map((img, index) => (
+              <img 
+                key={`${currentIndex}-${index}`} 
+                src={img} 
+                alt={`${nome} screenshot ${index + 1}`} 
+                style={{ 
+                  width: 'auto', 
+                  height: '320px',
+                  borderRadius: '16px',
+                  flexShrink: 0
+                }} 
+              />
+            ))}
+          </motion.div>
+        </AnimatePresence>
 
         {imagens && imagens.length > 3 && (
           <button 
