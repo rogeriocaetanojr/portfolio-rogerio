@@ -14,7 +14,7 @@ export function Projects() {
       <div style={{ width: '100%', marginTop: '2rem' }}>
         <ProjectCard
           nome="EH BREWING CO"
-          descricao="Sistema de monitoramento e controle para cervejaria artesanal."
+          descricao="Sistema de monitoramento e controle de temperatura para cervejaria artesanal."
           imagens={[imgLogin, imgPlanta, imgNovoFermentador, imgAlertas, imgHistorico]}
         />
       </div>

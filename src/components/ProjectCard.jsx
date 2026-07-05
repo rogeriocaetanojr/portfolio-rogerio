@@ -29,7 +29,7 @@ export function ProjectCard({ nome, descricao, imagens }) {
   };
 
   useEffect(() => {
-    if (!imagens || imagens.length <= 3) return;
+    if (!imagens || imagens.length <= 4) return;
 
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % imagens.length);
@@ -40,10 +40,10 @@ export function ProjectCard({ nome, descricao, imagens }) {
 
   const getVisibleImages = () => {
     if (!imagens || imagens.length === 0) return [];
-    if (imagens.length <= 3) return imagens;
+    if (imagens.length <= 4) return imagens;
     
     const visible = [];
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
       visible.push(imagens[(currentIndex + i) % imagens.length]);
     }
     return visible;
@@ -75,7 +75,7 @@ export function ProjectCard({ nome, descricao, imagens }) {
       </p>
       
       <div style={{ marginTop: '24px', position: 'relative' }}>
-        {imagens && imagens.length > 3 && (
+        {imagens && imagens.length > 4 && (
           <button 
             onClick={handlePrev}
             onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'}
@@ -111,7 +111,7 @@ export function ProjectCard({ nome, descricao, imagens }) {
           </motion.div>
         </AnimatePresence>
 
-        {imagens && imagens.length > 3 && (
+        {imagens && imagens.length > 4 && (
           <button 
             onClick={handleNext}
             onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'}
