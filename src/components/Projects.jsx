@@ -18,6 +18,13 @@ export function Projects() {
           imagens={[imgLogin, imgPlanta, imgNovoFermentador, imgAlertas, imgHistorico]}
         />
       </div>
+      <div style={{ width: '100%', marginTop: '2rem' }}>
+        <ProjectCard
+          nome="Novo Projeto"
+          descricao="Descrição do projeto em breve."
+          imagens={[]}
+        />
+      </div>
     </section>
   )
 }

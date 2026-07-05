@@ -87,26 +87,41 @@ export function ProjectCard({ nome, descricao, imagens }) {
         )}
 
         <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', overflow: 'hidden' }}>
-          <AnimatePresence mode="popLayout">
-            {getVisibleImages().map((img) => (
-              <motion.img 
-                layout
-                key={img} 
-                src={img} 
-                alt={`${nome} screenshot`} 
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                style={{ 
-                  width: 'auto', 
+          {(!imagens || imagens.length === 0) ? (
+            Array.from({ length: 4 }).map((_, i) => (
+              <div 
+                key={`placeholder-${i}`}
+                style={{
+                  width: '180px',
                   height: '320px',
                   borderRadius: '16px',
+                  backgroundColor: '#1a1a1a',
                   flexShrink: 0
-                }} 
+                }}
               />
-            ))}
-          </AnimatePresence>
+            ))
+          ) : (
+            <AnimatePresence mode="popLayout">
+              {getVisibleImages().map((img) => (
+                <motion.img 
+                  layout
+                  key={img} 
+                  src={img} 
+                  alt={`${nome} screenshot`} 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  style={{ 
+                    width: 'auto', 
+                    height: '320px',
+                    borderRadius: '16px',
+                    flexShrink: 0
+                  }} 
+                />
+              ))}
+            </AnimatePresence>
+          )}
         </div>
 
         {imagens && imagens.length > 4 && (
