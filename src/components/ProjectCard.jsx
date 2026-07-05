@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const ChevronLeft = ({ size = 24 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -26,6 +26,16 @@ export function ProjectCard({ nome, descricao, imagens }) {
       setCurrentIndex((prev) => (prev - 1 + imagens.length) % imagens.length);
     }
   };
+
+  useEffect(() => {
+    if (!imagens || imagens.length <= 3) return;
+
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % imagens.length);
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [imagens, currentIndex]);
 
   const getVisibleImages = () => {
     if (!imagens || imagens.length === 0) return [];
