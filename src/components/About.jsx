@@ -10,10 +10,11 @@ export function About() {
 
   return (
     <section id="sobre" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', padding: '60px 5vw 4rem', scrollMarginTop: '100px' }}>
-      <div style={{ backgroundColor: '#0E0E0E', border: '1px solid rgba(255, 255, 255, 0.18)', borderRadius: '16px', padding: '40px', maxWidth: '780px', width: '100%', margin: '0 auto' }}>
+      <div>
         <h2 style={{ fontSize: '2.5rem', textAlign: 'center' }}>Sobre Mim</h2>
-
-        <div style={{ marginTop: '1.5rem' }}>
+      </div>
+      <div style={{ backgroundColor: '#0E0E0E', border: '1px solid rgba(255, 255, 255, 0.18)', borderRadius: '16px', padding: '40px', maxWidth: '780px', width: '100%', margin: '0 auto', marginTop: '2rem' }}>
+        <div>
           <p style={textoStyle}>
             Meu nome é Rogério Caetano, tenho 26 anos e sou de Curitiba, Paraná. Atualmente curso o sétimo período de Engenharia de Software e venho me especializando em desenvolvimento front-end e mobile, trabalhando principalmente com JavaScript, TypeScript e React Native.
           </p>
