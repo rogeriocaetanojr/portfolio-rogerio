@@ -5,13 +5,21 @@ export function ProjectCard({ nome, descricao, imagens }) {
       <p style={{ fontSize: '1rem', color: '#B0B0B0', marginTop: '8px' }}>
         {descricao}
       </p>
-      <div style={{ marginTop: '16px' }}>
-        <p>Imagens:</p>
-        <ul>
-          {imagens && imagens.map((img, index) => (
-            <li key={index}>{img}</li>
-          ))}
-        </ul>
+      <div style={{ marginTop: '24px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+        {imagens && imagens.map((img, index) => (
+          <img 
+            key={index} 
+            src={img} 
+            alt={`${nome} screenshot ${index + 1}`} 
+            style={{ 
+              width: '100%', 
+              height: '100%', 
+              minHeight: '200px',
+              objectFit: 'cover', 
+              borderRadius: '12px' 
+            }} 
+          />
+        ))}
       </div>
     </div>
   );
