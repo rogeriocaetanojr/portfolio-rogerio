@@ -33,7 +33,7 @@ export function ProjectCard({ nome, descricao, imagens }) {
 
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % imagens.length);
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(timer);
   }, [imagens, currentIndex]);
@@ -86,20 +86,18 @@ export function ProjectCard({ nome, descricao, imagens }) {
           </button>
         )}
 
-        <AnimatePresence mode="wait">
-          <motion.div 
-            key={currentIndex}
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -30 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            style={{ display: 'flex', justifyContent: 'center', gap: '16px', overflow: 'hidden' }}
-          >
-            {getVisibleImages().map((img, index) => (
-              <img 
-                key={`${currentIndex}-${index}`} 
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', overflow: 'hidden' }}>
+          <AnimatePresence mode="popLayout">
+            {getVisibleImages().map((img) => (
+              <motion.img 
+                layout
+                key={img} 
                 src={img} 
-                alt={`${nome} screenshot ${index + 1}`} 
+                alt={`${nome} screenshot`} 
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
                 style={{ 
                   width: 'auto', 
                   height: '320px',
@@ -108,8 +106,8 @@ export function ProjectCard({ nome, descricao, imagens }) {
                 }} 
               />
             ))}
-          </motion.div>
-        </AnimatePresence>
+          </AnimatePresence>
+        </div>
 
         {imagens && imagens.length > 4 && (
           <button 
