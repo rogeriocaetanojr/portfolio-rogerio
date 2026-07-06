@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const carouselImages = [
@@ -9,6 +10,16 @@ const carouselImages = [
 ];
 
 export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descrição do projeto em breve." }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => (prev - 1 + carouselImages.length) % carouselImages.length);
+  };
+
   return (
     <div style={{ 
       backgroundColor: '#0E0E0E', 
@@ -30,7 +41,7 @@ export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descriç
         </p>
       </div>
 
-      {/* Carrossel - Etapa 1: Estrutura Base */}
+      {/* Carrossel - Etapa 2: Estado e Setas */}
       <div style={{
         position: 'relative',
         width: '100%',
@@ -43,10 +54,58 @@ export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descriç
         <div style={{
           width: '100%',
           height: '100%',
-          backgroundImage: `url("${carouselImages[0]}")`,
+          backgroundImage: `url("${carouselImages[currentIndex]}")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }} />
+
+        {/* Setas de Navegação */}
+        <button
+          onClick={prevImage}
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '16px',
+            transform: 'translateY(-50%)',
+            background: 'rgba(0, 0, 0, 0.5)',
+            border: 'none',
+            borderRadius: '50%',
+            width: '40px',
+            height: '40px',
+            color: 'white',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '18px',
+            zIndex: 2
+          }}
+        >
+          &#10094;
+        </button>
+        <button
+          onClick={nextImage}
+          style={{
+            position: 'absolute',
+            top: '50%',
+            right: '16px',
+            transform: 'translateY(-50%)',
+            background: 'rgba(0, 0, 0, 0.5)',
+            border: 'none',
+            borderRadius: '50%',
+            width: '40px',
+            height: '40px',
+            color: 'white',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '18px',
+            zIndex: 2
+          }}
+        >
+          &#10095;
+        </button>
       </div>
     </div>
   );
