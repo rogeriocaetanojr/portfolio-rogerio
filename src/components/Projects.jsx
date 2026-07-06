@@ -27,6 +27,8 @@ export function Projects() {
       </div>
       <div style={{ width: '100%', marginTop: '2rem' }}>
         <ProjectCardMosaic 
+          nome="PORTAL COMUNIDADE ENGENHARIA DE SOFTWARE"
+          descricao="Plataforma educacional para estudantes de Engenharia de Software do UniSenai"
           imagens={[
             imgSenaiLogin, 
             imgSenaiFeed, 
