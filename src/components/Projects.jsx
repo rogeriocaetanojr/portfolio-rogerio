@@ -31,6 +31,18 @@ export function Projects() {
         />
       </div>
       <div style={{ width: '100%', marginTop: '2rem' }}>
+        <ProjectCard
+          nome="TECNOTOOLING"
+          descricao="Aplicativo inovador com chatbot para consultas rápidas da empresa"
+          imagens={[
+            imgTecnoLogin,
+            imgTecnoChatbot,
+            imgTecnoUpload,
+            imgTecnoPerfil
+          ]}
+        />
+      </div>
+      <div style={{ width: '100%', marginTop: '2rem' }}>
         <ProjectCardMosaic
           nome="COMUNIDADE DE ESTUDANTES SENAI"
           descricao="Plataforma educacional para estudantes de Engenharia de Software do UniSenai"
@@ -40,18 +52,6 @@ export function Projects() {
             imgSenaiNovaComunidade,
             imgSenaiComunidade1,
             imgSenaiPerfil
-          ]}
-        />
-      </div>
-      <div style={{ width: '100%', marginTop: '2rem' }}>
-        <ProjectCard
-          nome="TECNOTOOLING"
-          descricao="Aplicativo inovador com chatbot para consultas rápidas da empresa"
-          imagens={[
-            imgTecnoLogin,
-            imgTecnoChatbot,
-            imgTecnoUpload,
-            imgTecnoPerfil
           ]}
         />
       </div>
