@@ -9,7 +9,7 @@ const carouselImages = [
   'https://via.placeholder.com/1280x720/666666/FFFFFF?text=Imagem+5',
 ];
 
-export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descrição do projeto em breve." }) {
+export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descrição do projeto em breve.", imagens = carouselImages }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -17,18 +17,18 @@ export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descriç
     if (isHovered) return;
 
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
+      setCurrentIndex((prev) => (prev + 1) % imagens.length);
     }, 5000);
 
     return () => clearInterval(timer);
   }, [currentIndex, isHovered]);
 
   const nextImage = () => {
-    setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
+    setCurrentIndex((prev) => (prev + 1) % imagens.length);
   };
 
   const prevImage = () => {
-    setCurrentIndex((prev) => (prev - 1 + carouselImages.length) % carouselImages.length);
+    setCurrentIndex((prev) => (prev - 1 + imagens.length) % imagens.length);
   };
 
   return (
@@ -78,7 +78,7 @@ export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descriç
               left: 0,
               width: '100%',
               height: '100%',
-              backgroundImage: `url("${carouselImages[currentIndex]}")`,
+              backgroundImage: `url("${imagens[currentIndex]}")`,
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}
@@ -141,7 +141,7 @@ export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descriç
         gap: '8px',
         marginTop: '16px'
       }}>
-        {carouselImages.map((_, index) => (
+        {imagens.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}

@@ -6,6 +6,12 @@ import imgLogin from '../assets/projects/eh-brewing/login.png';
 import imgNovoFermentador from '../assets/projects/eh-brewing/novofermentador.png';
 import imgPlanta from '../assets/projects/eh-brewing/planta.png';
 
+import imgSenaiLogin from '../assets/projects/portal-senai/login.png';
+import imgSenaiFeed from '../assets/projects/portal-senai/feed.png';
+import imgSenaiNovaComunidade from '../assets/projects/portal-senai/novacomunidade.png';
+import imgSenaiComunidade1 from '../assets/projects/portal-senai/comunidade1.png';
+import imgSenaiPerfil from '../assets/projects/portal-senai/perfil.png';
+
 export function Projects() {
   return (
     <section id="projetos" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', padding: '60px 5vw 4rem', scrollMarginTop: '100px' }}>
@@ -20,7 +26,15 @@ export function Projects() {
         />
       </div>
       <div style={{ width: '100%', marginTop: '2rem' }}>
-        <ProjectCardMosaic />
+        <ProjectCardMosaic 
+          imagens={[
+            imgSenaiLogin, 
+            imgSenaiFeed, 
+            imgSenaiNovaComunidade, 
+            imgSenaiComunidade1, 
+            imgSenaiPerfil
+          ]} 
+        />
       </div>
     </section>
   )
