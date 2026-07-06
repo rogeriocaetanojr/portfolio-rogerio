@@ -29,7 +29,7 @@ export function ProjectCard({ nome, descricao, imagens }) {
   };
 
   useEffect(() => {
-    if (!imagens || imagens.length <= 4) return;
+    if (!imagens || imagens.length <= 3) return;
 
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % imagens.length);
@@ -75,7 +75,7 @@ export function ProjectCard({ nome, descricao, imagens }) {
       </p>
       
       <div style={{ marginTop: '24px', position: 'relative' }}>
-        {imagens && imagens.length > 4 && (
+        {imagens && imagens.length > 3 && (
           <button 
             onClick={handlePrev}
             onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'}
@@ -124,7 +124,7 @@ export function ProjectCard({ nome, descricao, imagens }) {
           )}
         </div>
 
-        {imagens && imagens.length > 4 && (
+        {imagens && imagens.length > 3 && (
           <button 
             onClick={handleNext}
             onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'}
