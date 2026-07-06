@@ -119,6 +119,31 @@ export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descriç
           &#10095;
         </button>
       </div>
+
+      {/* Dots de Navegação (Etapa 4) */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '8px',
+        marginTop: '16px'
+      }}>
+        {carouselImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            style={{
+              width: '12px',
+              height: '12px',
+              borderRadius: '50%',
+              border: 'none',
+              backgroundColor: index === currentIndex ? '#FFFFFF' : '#444444',
+              cursor: 'pointer',
+              transition: 'background-color 0.3s'
+            }}
+            aria-label={`Ir para a imagem ${index + 1}`}
+          />
+        ))}
+      </div>
     </div>
   );
 }
