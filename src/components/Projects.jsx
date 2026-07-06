@@ -12,6 +12,11 @@ import imgSenaiNovaComunidade from '../assets/projects/portal-senai/novacomunida
 import imgSenaiComunidade1 from '../assets/projects/portal-senai/comunidade1.png';
 import imgSenaiPerfil from '../assets/projects/portal-senai/perfil.png';
 
+import imgTecnoChatbot from '../assets/projects/tecnotooling/chatbot.jpeg';
+import imgTecnoLogin from '../assets/projects/tecnotooling/login.jpeg';
+import imgTecnoPerfil from '../assets/projects/tecnotooling/perfil.jpeg';
+import imgTecnoUpload from '../assets/projects/tecnotooling/upload.jpeg';
+
 export function Projects() {
   return (
     <section id="projetos" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', padding: '60px 5vw 4rem', scrollMarginTop: '100px' }}>
@@ -26,16 +31,28 @@ export function Projects() {
         />
       </div>
       <div style={{ width: '100%', marginTop: '2rem' }}>
-        <ProjectCardMosaic 
-          nome="PORTAL COMUNIDADE ENGENHARIA DE SOFTWARE"
+        <ProjectCardMosaic
+          nome="COMUNIDADE DE ESTUDANTES SENAI"
           descricao="Plataforma educacional para estudantes de Engenharia de Software do UniSenai"
           imagens={[
-            imgSenaiLogin, 
-            imgSenaiFeed, 
-            imgSenaiNovaComunidade, 
-            imgSenaiComunidade1, 
+            imgSenaiLogin,
+            imgSenaiFeed,
+            imgSenaiNovaComunidade,
+            imgSenaiComunidade1,
             imgSenaiPerfil
-          ]} 
+          ]}
+        />
+      </div>
+      <div style={{ width: '100%', marginTop: '2rem' }}>
+        <ProjectCard
+          nome="TECNOTOOLING"
+          descricao="Aplicativo inovador com chatbot e gestão de perfil (descrição temporária)."
+          imagens={[
+            imgTecnoLogin,
+            imgTecnoChatbot,
+            imgTecnoUpload,
+            imgTecnoPerfil
+          ]}
         />
       </div>
     </section>
