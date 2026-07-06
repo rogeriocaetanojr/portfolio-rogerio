@@ -21,7 +21,7 @@ const ChevronRight = ({ size = 24 }) => (
   </svg>
 );
 
-export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descrição do projeto em breve.", imagens = carouselImages }) {
+export function ProjectCardWeb({ nome = "Novo Projeto", descricao = "Descrição do projeto em breve.", imagens = carouselImages }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [isHovered, setIsHovered] = useState(false);

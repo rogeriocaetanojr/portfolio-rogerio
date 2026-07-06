@@ -13,7 +13,7 @@ const ChevronRight = ({ size = 24 }) => (
   </svg>
 );
 
-export function ProjectCard({ nome, descricao, imagens }) {
+export function ProjectCardMobile({ nome, descricao, imagens }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
