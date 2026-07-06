@@ -46,7 +46,7 @@ export function Projects() {
       <div style={{ width: '100%', marginTop: '2rem' }}>
         <ProjectCard
           nome="TECNOTOOLING"
-          descricao="Aplicativo inovador com chatbot e gestão de perfil (descrição temporária)."
+          descricao="Aplicativo inovador com chatbot para consultas rápidas da empresa"
           imagens={[
             imgTecnoLogin,
             imgTecnoChatbot,
