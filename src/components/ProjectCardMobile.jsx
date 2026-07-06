@@ -69,7 +69,7 @@ export function ProjectCardMobile({ numero, nome, descricao, imagens }) {
 
   return (
     <div style={{ backgroundColor: '#0E0E0E', border: '1px solid rgba(255, 255, 255, 0.18)', borderRadius: '16px', padding: '32px', maxWidth: '1100px', width: '100%', margin: '0 auto' }}>
-      <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '24px' }}>
+      <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '24px', height: '110px' }}>
         {numero && (
           <div style={{ 
             fontSize: '4.5rem', 

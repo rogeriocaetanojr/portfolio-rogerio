@@ -11,13 +11,13 @@ const carouselImages = [
 
 const ChevronLeft = ({ size = 24 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="m15 18-6-6 6-6"/>
+    <path d="m15 18-6-6 6-6" />
   </svg>
 );
 
 const ChevronRight = ({ size = 24 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="m9 18 6-6-6-6"/>
+    <path d="m9 18 6-6-6-6" />
   </svg>
 );
 
@@ -66,25 +66,25 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
   };
 
   return (
-    <div style={{ 
-      backgroundColor: '#0E0E0E', 
-      border: '1px solid rgba(255, 255, 255, 0.18)', 
-      borderRadius: '16px', 
-      padding: '32px', 
-      maxWidth: '1100px', 
-      width: '100%', 
+    <div style={{
+      backgroundColor: '#0E0E0E',
+      border: '1px solid rgba(255, 255, 255, 0.18)',
+      borderRadius: '16px',
+      padding: '32px',
+      maxWidth: '1100px',
+      width: '100%',
       margin: '0 auto',
       display: 'flex',
       flexDirection: 'column'
     }}>
       {/* Cabeçalho */}
-      <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '24px' }}>
+      <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '24px', height: '110px' }}>
         {numero && (
-          <div style={{ 
-            fontSize: '4.5rem', 
-            fontWeight: '900', 
-            color: '#E2E8F0', 
-            lineHeight: '1', 
+          <div style={{
+            fontSize: '4.5rem',
+            fontWeight: '900',
+            color: '#E2E8F0',
+            lineHeight: '1',
             letterSpacing: '-2px',
             flexShrink: 0
           }}>
@@ -100,7 +100,7 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
       </div>
 
       {/* Carrossel - Etapa 2: Estado e Setas */}
-      <div 
+      <div
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{
@@ -121,25 +121,25 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
         }}>
           {/* Imagem Principal */}
           <AnimatePresence mode="popLayout" custom={direction}>
-          <motion.div
-            key={currentIndex}
-            custom={direction}
-            initial={(d) => ({ x: d > 0 ? 200 : -200, opacity: 0, scale: 0.8 })}
-            animate={{ x: 0, opacity: 1, scale: 1 }}
-            exit={(d) => ({ x: d > 0 ? -200 : 200, opacity: 0, scale: 0.8 })}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              backgroundImage: `url("${imagens[currentIndex]}")`,
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center'
-            }}
-          />
+            <motion.div
+              key={currentIndex}
+              custom={direction}
+              initial={(d) => ({ x: d > 0 ? 200 : -200, opacity: 0, scale: 0.8 })}
+              animate={{ x: 0, opacity: 1, scale: 1 }}
+              exit={(d) => ({ x: d > 0 ? -200 : 200, opacity: 0, scale: 0.8 })}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                backgroundImage: `url("${imagens[currentIndex]}")`,
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center'
+              }}
+            />
           </AnimatePresence>
         </div>
 
