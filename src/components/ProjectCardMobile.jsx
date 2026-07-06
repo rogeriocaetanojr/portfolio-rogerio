@@ -13,7 +13,7 @@ const ChevronRight = ({ size = 24 }) => (
   </svg>
 );
 
-export function ProjectCardMobile({ nome, descricao, imagens }) {
+export function ProjectCardMobile({ numero, nome, descricao, imagens }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -69,10 +69,26 @@ export function ProjectCardMobile({ nome, descricao, imagens }) {
 
   return (
     <div style={{ backgroundColor: '#0E0E0E', border: '1px solid rgba(255, 255, 255, 0.18)', borderRadius: '16px', padding: '32px', maxWidth: '1100px', width: '100%', margin: '0 auto' }}>
-      <h3 style={{ fontWeight: 'bold', fontSize: '1.75rem' }}>{nome}</h3>
-      <p style={{ fontSize: '1rem', color: '#B0B0B0', marginTop: '8px' }}>
-        {descricao}
-      </p>
+      <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '24px' }}>
+        {numero && (
+          <div style={{ 
+            fontSize: '4.5rem', 
+            fontWeight: '900', 
+            color: '#E2E8F0', 
+            lineHeight: '1', 
+            letterSpacing: '-2px',
+            flexShrink: 0
+          }}>
+            {numero}
+          </div>
+        )}
+        <div>
+          <h3 style={{ fontWeight: 'bold', fontSize: '1.75rem' }}>{nome}</h3>
+          <p style={{ fontSize: '1rem', color: '#B0B0B0', marginTop: '8px' }}>
+            {descricao}
+          </p>
+        </div>
+      </div>
       
       <div style={{ marginTop: '24px', position: 'relative' }}>
         {imagens && imagens.length > 3 && (

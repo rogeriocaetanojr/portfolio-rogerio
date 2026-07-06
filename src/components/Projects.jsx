@@ -30,6 +30,7 @@ export function Projects() {
       </div>
       <div style={{ width: '100%', marginTop: '2rem' }}>
         <ProjectCardMobile
+          numero="01"
           nome="EH BREWING CO"
           descricao="Sistema de monitoramento e controle de temperatura para cervejaria artesanal."
           imagens={[imgLogin, imgPlanta, imgNovoFermentador, imgAlertas, imgHistorico]}
@@ -37,6 +38,7 @@ export function Projects() {
       </div>
       <div style={{ width: '100%', marginTop: '2rem' }}>
         <ProjectCardMobile
+          numero="02"
           nome="TECNOTOOLING"
           descricao="Aplicativo inovador com chatbot para consultas rápidas da empresa"
           imagens={[
@@ -49,6 +51,7 @@ export function Projects() {
       </div>
       <div style={{ width: '100%', marginTop: '2rem' }}>
         <ProjectCardWeb
+          numero="03"
           nome="COMUNIDADE DE ESTUDANTES SENAI"
           descricao="Plataforma educacional para estudantes de Engenharia de Software do UniSenai"
           imagens={[
@@ -62,6 +65,7 @@ export function Projects() {
       </div>
       <div style={{ width: '100%', marginTop: '2rem' }}>
         <ProjectCardWeb
+          numero="04"
           nome="PIZZARIA"
           descricao="Projeto de estudo com o objetivo de simular o site de uma pizzaria fictícia."
           imagens={[

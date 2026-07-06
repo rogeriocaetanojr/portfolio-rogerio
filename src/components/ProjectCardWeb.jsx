@@ -21,7 +21,7 @@ const ChevronRight = ({ size = 24 }) => (
   </svg>
 );
 
-export function ProjectCardWeb({ nome = "Novo Projeto", descricao = "Descrição do projeto em breve.", imagens = carouselImages }) {
+export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Descrição do projeto em breve.", imagens = carouselImages }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [isHovered, setIsHovered] = useState(false);
@@ -78,11 +78,25 @@ export function ProjectCardWeb({ nome = "Novo Projeto", descricao = "Descrição
       flexDirection: 'column'
     }}>
       {/* Cabeçalho */}
-      <div style={{ marginBottom: '24px' }}>
-        <h3 style={{ fontWeight: 'bold', fontSize: '1.75rem' }}>{nome}</h3>
-        <p style={{ fontSize: '1rem', color: '#B0B0B0', marginTop: '8px' }}>
-          {descricao}
-        </p>
+      <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '24px' }}>
+        {numero && (
+          <div style={{ 
+            fontSize: '4.5rem', 
+            fontWeight: '900', 
+            color: '#E2E8F0', 
+            lineHeight: '1', 
+            letterSpacing: '-2px',
+            flexShrink: 0
+          }}>
+            {numero}
+          </div>
+        )}
+        <div>
+          <h3 style={{ fontWeight: 'bold', fontSize: '1.75rem' }}>{nome}</h3>
+          <p style={{ fontSize: '1rem', color: '#B0B0B0', marginTop: '8px' }}>
+            {descricao}
+          </p>
+        </div>
       </div>
 
       {/* Carrossel - Etapa 2: Estado e Setas */}
