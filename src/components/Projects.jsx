@@ -17,6 +17,11 @@ import imgTecnoLogin from '../assets/projects/tecnotooling/login.jpeg';
 import imgTecnoPerfil from '../assets/projects/tecnotooling/perfil.jpeg';
 import imgTecnoUpload from '../assets/projects/tecnotooling/upload.jpeg';
 
+import imgPizzaHome from '../assets/projects/pizzaria/home.png';
+import imgPizzaSobre from '../assets/projects/pizzaria/sobre.png';
+import imgPizzaCardapio from '../assets/projects/pizzaria/cardapio.png';
+import imgPizzaCarrinho from '../assets/projects/pizzaria/carrinho.png';
+
 export function Projects() {
   return (
     <section id="projetos" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', padding: '60px 5vw 4rem', scrollMarginTop: '100px' }}>
@@ -52,6 +57,18 @@ export function Projects() {
             imgSenaiNovaComunidade,
             imgSenaiComunidade1,
             imgSenaiPerfil
+          ]}
+        />
+      </div>
+      <div style={{ width: '100%', marginTop: '2rem' }}>
+        <ProjectCardWeb
+          nome="PIZZARIA"
+          descricao="Projeto de estudo com o objetivo de simular o site de uma pizzaria fictícia."
+          imagens={[
+            imgPizzaHome,
+            imgPizzaSobre,
+            imgPizzaCardapio,
+            imgPizzaCarrinho
           ]}
         />
       </div>
