@@ -40,7 +40,7 @@ export function ProjectCard({ nome, descricao, imagens }) {
 
   const getVisibleImages = () => {
     if (!imagens || imagens.length === 0) return [];
-    if (imagens.length <= 4) return imagens;
+    if (imagens.length < 4) return imagens;
     
     const visible = [];
     for (let i = 0; i < 4; i++) {
