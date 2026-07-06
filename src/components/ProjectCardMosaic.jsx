@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const carouselImages = [
   'https://via.placeholder.com/1280x720/222222/FFFFFF?text=Imagem+1',
@@ -51,13 +51,25 @@ export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descriç
         overflow: 'hidden'
       }}>
         {/* Imagem Principal */}
-        <div style={{
-          width: '100%',
-          height: '100%',
-          backgroundImage: `url("${carouselImages[currentIndex]}")`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }} />
+        <AnimatePresence>
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              backgroundImage: `url("${carouselImages[currentIndex]}")`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          />
+        </AnimatePresence>
 
         {/* Setas de Navegação */}
         <button
