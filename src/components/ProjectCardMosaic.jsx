@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const carouselImages = [
@@ -11,6 +11,17 @@ const carouselImages = [
 
 export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descrição do projeto em breve." }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (isHovered) return;
+
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [currentIndex, isHovered]);
 
   const nextImage = () => {
     setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
@@ -42,7 +53,10 @@ export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descriç
       </div>
 
       {/* Carrossel - Etapa 2: Estado e Setas */}
-      <div style={{
+      <div 
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        style={{
         position: 'relative',
         width: '100%',
         aspectRatio: '16/9',
