@@ -108,8 +108,8 @@ export function ProjectCardMobile({ numero, nome, descricao, imagens }) {
               <div 
                 key={`placeholder-${i}`}
                 style={{
-                  width: '146px',
-                  height: '260px',
+                  width: '180px',
+                  height: '320px',
                   borderRadius: '16px',
                   backgroundColor: '#1a1a1a',
                   flexShrink: 0
@@ -130,7 +130,7 @@ export function ProjectCardMobile({ numero, nome, descricao, imagens }) {
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   style={{ 
                     width: 'auto', 
-                    height: '260px',
+                    height: '320px',
                     borderRadius: '16px',
                     flexShrink: 0
                   }} 

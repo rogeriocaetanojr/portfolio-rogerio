@@ -112,7 +112,7 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
         <div style={{
           position: 'relative',
           width: '100%',
-          maxWidth: '600px',
+          maxWidth: '720px',
           margin: '0 auto',
           aspectRatio: '16/9',
           backgroundColor: '#1A1A1A',
