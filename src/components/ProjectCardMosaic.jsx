@@ -9,26 +9,60 @@ const carouselImages = [
   'https://via.placeholder.com/1280x720/666666/FFFFFF?text=Imagem+5',
 ];
 
+const ChevronLeft = ({ size = 24 }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="m15 18-6-6 6-6"/>
+  </svg>
+);
+
+const ChevronRight = ({ size = 24 }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="m9 18 6-6-6-6"/>
+  </svg>
+);
+
 export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descrição do projeto em breve.", imagens = carouselImages }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     if (isHovered) return;
 
     const timer = setInterval(() => {
+      setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % imagens.length);
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(timer);
-  }, [currentIndex, isHovered]);
+  }, [currentIndex, isHovered, imagens.length]);
 
   const nextImage = () => {
+    setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % imagens.length);
   };
 
   const prevImage = () => {
+    setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + imagens.length) % imagens.length);
+  };
+
+  const buttonStyle = {
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    color: '#FFF',
+    border: 'none',
+    borderRadius: '50%',
+    width: '48px',
+    height: '48px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    cursor: 'pointer',
+    zIndex: 10,
+    transition: 'background-color 0.2s',
   };
 
   return (
@@ -41,8 +75,7 @@ export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descriç
       width: '100%', 
       margin: '0 auto',
       display: 'flex',
-      flexDirection: 'column',
-      minHeight: '600px' 
+      flexDirection: 'column'
     }}>
       {/* Cabeçalho */}
       <div style={{ marginBottom: '24px' }}>
@@ -57,21 +90,30 @@ export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descriç
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{
-        position: 'relative',
-        width: '100%',
-        aspectRatio: '16/9',
-        backgroundColor: '#1A1A1A',
-        borderRadius: '12px',
-        overflow: 'hidden'
-      }}>
-        {/* Imagem Principal */}
-        <AnimatePresence>
+          position: 'relative',
+          width: '100%',
+          marginTop: '24px'
+        }}
+      >
+        <div style={{
+          position: 'relative',
+          width: '100%',
+          maxWidth: '720px',
+          margin: '0 auto',
+          aspectRatio: '16/9',
+          backgroundColor: '#1A1A1A',
+          borderRadius: '12px',
+          overflow: 'hidden'
+        }}>
+          {/* Imagem Principal */}
+          <AnimatePresence mode="popLayout" custom={direction}>
           <motion.div
             key={currentIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
+            custom={direction}
+            initial={(d) => ({ x: d > 0 ? 200 : -200, opacity: 0, scale: 0.8 })}
+            animate={{ x: 0, opacity: 1, scale: 1 }}
+            exit={(d) => ({ x: d > 0 ? -200 : 200, opacity: 0, scale: 0.8 })}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             style={{
               position: 'absolute',
               top: 0,
@@ -79,58 +121,30 @@ export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descriç
               width: '100%',
               height: '100%',
               backgroundImage: `url("${imagens[currentIndex]}")`,
-              backgroundSize: 'cover',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center'
             }}
           />
-        </AnimatePresence>
+          </AnimatePresence>
+        </div>
 
         {/* Setas de Navegação */}
         <button
           onClick={prevImage}
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '16px',
-            transform: 'translateY(-50%)',
-            background: 'rgba(0, 0, 0, 0.5)',
-            border: 'none',
-            borderRadius: '50%',
-            width: '40px',
-            height: '40px',
-            color: 'white',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '18px',
-            zIndex: 2
-          }}
+          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'}
+          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.6)'}
+          style={{ ...buttonStyle, left: '-16px' }}
         >
-          &#10094;
+          <ChevronLeft size={24} />
         </button>
         <button
           onClick={nextImage}
-          style={{
-            position: 'absolute',
-            top: '50%',
-            right: '16px',
-            transform: 'translateY(-50%)',
-            background: 'rgba(0, 0, 0, 0.5)',
-            border: 'none',
-            borderRadius: '50%',
-            width: '40px',
-            height: '40px',
-            color: 'white',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '18px',
-            zIndex: 2
-          }}
+          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'}
+          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.6)'}
+          style={{ ...buttonStyle, right: '-16px' }}
         >
-          &#10095;
+          <ChevronRight size={24} />
         </button>
       </div>
 
