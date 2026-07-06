@@ -1,5 +1,13 @@
 import { motion } from 'framer-motion';
 
+const carouselImages = [
+  'https://via.placeholder.com/1280x720/222222/FFFFFF?text=Imagem+1',
+  'https://via.placeholder.com/1280x720/333333/FFFFFF?text=Imagem+2',
+  'https://via.placeholder.com/1280x720/444444/FFFFFF?text=Imagem+3',
+  'https://via.placeholder.com/1280x720/555555/FFFFFF?text=Imagem+4',
+  'https://via.placeholder.com/1280x720/666666/FFFFFF?text=Imagem+5',
+];
+
 export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descrição do projeto em breve." }) {
   return (
     <div style={{ 
@@ -22,13 +30,23 @@ export function ProjectCardMosaic({ nome = "Novo Projeto", descricao = "Descriç
         </p>
       </div>
 
-      {/* Grade de Imagens (Placeholders) */}
-      <div className="mosaic-grid">
-        <div className="mosaic-cell"></div>
-        <div className="mosaic-cell mosaic-cell-large"></div>
-        <div className="mosaic-cell"></div>
-        <div className="mosaic-cell"></div>
-        <div className="mosaic-cell"></div>
+      {/* Carrossel - Etapa 1: Estrutura Base */}
+      <div style={{
+        position: 'relative',
+        width: '100%',
+        aspectRatio: '16/9',
+        backgroundColor: '#1A1A1A',
+        borderRadius: '12px',
+        overflow: 'hidden'
+      }}>
+        {/* Imagem Principal */}
+        <div style={{
+          width: '100%',
+          height: '100%',
+          backgroundImage: `url("${carouselImages[0]}")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }} />
       </div>
     </div>
   );
