@@ -81,9 +81,9 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
       overflow: 'hidden'
     }}>
       {/* Cabeçalho */}
-      <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '24px', height: '110px' }}>
+      <div className="card-web-header" style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '24px', height: '110px' }}>
         {numero && (
-          <div style={{
+          <div className="card-web-number" style={{
             fontSize: '4.5rem',
             fontWeight: '900',
             color: '#E2E8F0',
@@ -95,7 +95,7 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
           </div>
         )}
         <div>
-          <h3 style={{ fontWeight: 'bold', fontSize: '1.75rem' }}>{nome}</h3>
+          <h3 className="card-web-title" style={{ fontWeight: 'bold', fontSize: '1.75rem' }}>{nome}</h3>
           <p style={{ fontSize: '1rem', color: '#B0B0B0', marginTop: '8px' }}>
             {descricao}
             {' '}
@@ -128,7 +128,7 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
           marginTop: '24px'
         }}
       >
-        <div style={{
+        <div className="card-web-carousel" style={{
           position: 'relative',
           width: '100%',
           maxWidth: '720px',
@@ -171,6 +171,7 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
               animate={{ y: 0 }}
               exit={{ y: '100%' }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
+              className="card-web-sheet"
               style={{
                 position: 'absolute',
                 bottom: 0,
@@ -212,6 +213,7 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
           onClick={prevImage}
           onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'}
           onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.6)'}
+          className="card-web-btn-prev"
           style={{ ...buttonStyle, left: '-16px' }}
         >
           <ChevronLeft size={24} />
@@ -220,6 +222,7 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
           onClick={nextImage}
           onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'}
           onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.6)'}
+          className="card-web-btn-next"
           style={{ ...buttonStyle, right: '-16px' }}
         >
           <ChevronRight size={24} />
