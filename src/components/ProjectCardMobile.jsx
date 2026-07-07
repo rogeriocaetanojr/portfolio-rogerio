@@ -41,13 +41,7 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
 
   const getVisibleImages = () => {
     if (!imagens || imagens.length === 0) return [];
-    if (imagens.length < 4) return imagens;
-    
-    const visible = [];
-    for (let i = 0; i < 4; i++) {
-      visible.push(imagens[(currentIndex + i) % imagens.length]);
-    }
-    return visible;
+    return [imagens[currentIndex]];
   };
 
   const buttonStyle = {
@@ -123,7 +117,7 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
         <div style={{ position: 'relative', width: '100%' }}>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', overflow: 'hidden', position: 'relative', width: '100%' }}>
             {(!imagens || imagens.length === 0) ? (
-            Array.from({ length: 4 }).map((_, i) => (
+            Array.from({ length: 1 }).map((_, i) => (
               <div 
                 key={`placeholder-${i}`}
                 className="card-mobile-img"
