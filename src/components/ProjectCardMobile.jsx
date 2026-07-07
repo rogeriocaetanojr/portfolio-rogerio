@@ -13,7 +13,7 @@ const ChevronRight = ({ size = 24 }) => (
   </svg>
 );
 
-export function ProjectCardMobile({ numero, nome, descricao, imagens }) {
+export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -176,11 +176,44 @@ export function ProjectCardMobile({ numero, nome, descricao, imagens }) {
                   borderTopLeftRadius: '16px',
                   borderTopRightRadius: '16px',
                   zIndex: 20,
-                  padding: '24px'
+                  padding: '24px 32px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  cursor: 'default'
                 }}
               >
-                <button onClick={() => setIsExpanded(false)}>Ver menos</button>
-                <p style={{ marginTop: '16px' }}>Conteúdo básico do painel aparecendo!</p>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                  <h4 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#FFF', margin: 0 }}>Detalhes do Projeto</h4>
+                  <button 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsExpanded(false);
+                    }}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      color: '#BBCCD7',
+                      cursor: 'pointer',
+                      fontSize: '1rem',
+                      fontWeight: '500',
+                      padding: 0,
+                      textDecoration: 'none'
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.textDecoration = 'underline'}
+                    onMouseLeave={(e) => e.currentTarget.style.textDecoration = 'none'}
+                  >
+                    Ver menos
+                  </button>
+                </div>
+                <div style={{ overflowY: 'auto', flex: 1, paddingRight: '8px' }}>
+                  <div style={{ fontSize: '1rem', color: '#D7E2EA', lineHeight: '1.6' }}>
+                    {detalhes ? detalhes.split('\n\n').map((paragraph, index, arr) => (
+                      <p key={index} style={{ marginBottom: index === arr.length - 1 ? 0 : '16px' }}>
+                        {paragraph}
+                      </p>
+                    )) : null}
+                  </div>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
