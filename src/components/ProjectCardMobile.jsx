@@ -70,9 +70,9 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
 
   return (
     <div style={{ backgroundColor: '#0E0E0E', border: '1px solid rgba(255, 255, 255, 0.18)', borderRadius: '16px', padding: '32px', maxWidth: '1100px', width: '100%', margin: '0 auto', position: 'relative', overflow: 'hidden' }}>
-      <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '24px', height: '110px' }}>
+      <div className="card-mobile-header" style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '24px', height: '110px' }}>
         {numero && (
-          <div style={{ 
+          <div className="card-mobile-number" style={{ 
             fontSize: '4.5rem', 
             fontWeight: '900', 
             color: '#E2E8F0', 
@@ -84,7 +84,7 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
           </div>
         )}
         <div>
-          <h3 style={{ fontWeight: 'bold', fontSize: '1.75rem' }}>{nome}</h3>
+          <h3 className="card-mobile-title" style={{ fontWeight: 'bold', fontSize: '1.75rem' }}>{nome}</h3>
           <p style={{ fontSize: '1rem', color: '#B0B0B0', marginTop: '8px' }}>
             {descricao}
             {' '}
@@ -113,6 +113,7 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
             onClick={handlePrev}
             onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'}
             onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.6)'}
+            className="card-mobile-btn-prev"
             style={{ ...buttonStyle, left: '-16px' }}
           >
             <ChevronLeft size={24} />
@@ -125,6 +126,7 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
             Array.from({ length: 4 }).map((_, i) => (
               <div 
                 key={`placeholder-${i}`}
+                className="card-mobile-img"
                 style={{
                   width: '180px',
                   height: '320px',
@@ -146,6 +148,7 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="card-mobile-img"
                   style={{ 
                     width: 'auto', 
                     height: '320px',
@@ -165,6 +168,7 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
                 animate={{ y: 0 }}
                 exit={{ y: '100%' }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
+                className="card-mobile-sheet"
                 style={{
                   position: 'absolute',
                   bottom: 0,
@@ -205,6 +209,7 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
             onClick={handleNext}
             onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'}
             onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.6)'}
+            className="card-mobile-btn-next"
             style={{ ...buttonStyle, right: '-16px' }}
           >
             <ChevronRight size={24} />

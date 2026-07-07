@@ -103,6 +103,35 @@ a {
   .header-hamburger {
     display: block !important;
   }
+
+  /* ProjectCardMobile responsivo */
+  .card-mobile-header {
+    height: auto !important;
+    min-height: 0 !important;
+    gap: 16px !important;
+  }
+  .card-mobile-number {
+    font-size: 2.8rem !important;
+  }
+  .card-mobile-title {
+    font-size: 1.3rem !important;
+  }
+  .card-mobile-img {
+    height: 240px !important;
+  }
+  .card-mobile-btn-prev {
+    left: 8px !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .card-mobile-btn-next {
+    right: 8px !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .card-mobile-sheet {
+    padding: 16px 20px !important;
+  }
 }
 
 .header-mobile-link {
