@@ -18,7 +18,7 @@ export function About() {
             Meu nome é Rogério Caetano, tenho 26 anos e sou de Curitiba, Paraná. Atualmente curso o sétimo período de Engenharia de Software e venho me especializando em desenvolvimento front-end e mobile, trabalhando principalmente com JavaScript, TypeScript e React Native.
           </p>
           <p style={textoStyle}>
-            Minha paixão por tecnologia começou ainda muito novo, guiada pela curiosidade de entender como as coisas funcionam por trás das telas e foi isso que me trouxe até aqui. Hoje, além do código, tenho um interesse especial por UI/UX, buscando sempre unir uma boa experiência de uso a interfaces bem construídas.
+            Minha paixão por tecnologia começou ainda muito novo, guiado pela curiosidade de entender como as coisas funcionam por trás das telas e foi isso que me trouxe até aqui. Hoje, além do código, tenho um interesse especial por UI/UX, buscando sempre unir uma boa experiência de uso a interfaces bem construídas.
           </p>
           <p style={textoStyle}>
             Já atuei como estagiário na UniSenai - PR, no desenvolvimento full stack de um portal educacional para estudantes, experiência que me ajudou a entender o processo de construção de um produto de ponta a ponta. Você pode conhecer mais sobre esse e outros projetos na aba Projetos.

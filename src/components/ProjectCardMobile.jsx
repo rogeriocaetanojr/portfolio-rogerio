@@ -86,6 +86,21 @@ export function ProjectCardMobile({ numero, nome, descricao, imagens }) {
           <h3 style={{ fontWeight: 'bold', fontSize: '1.75rem' }}>{nome}</h3>
           <p style={{ fontSize: '1rem', color: '#B0B0B0', marginTop: '8px' }}>
             {descricao}
+            {' '}
+            <span 
+              style={{
+                marginLeft: '8px',
+                color: '#BBCCD7',
+                cursor: 'pointer',
+                fontWeight: '500',
+                textDecoration: 'none',
+                transition: 'text-decoration 0.2s'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.textDecoration = 'underline'}
+              onMouseLeave={(e) => e.currentTarget.style.textDecoration = 'none'}
+            >
+              Ver mais
+            </span>
           </p>
         </div>
       </div>
