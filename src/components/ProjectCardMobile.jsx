@@ -16,6 +16,13 @@ const ChevronRight = ({ size = 24 }) => (
 export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleNext = () => {
     if (imagens) {
@@ -41,7 +48,20 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
 
   const getVisibleImages = () => {
     if (!imagens || imagens.length === 0) return [];
-    return [imagens[currentIndex]];
+    
+    // Mostra apenas 1 imagem em telas de celular
+    if (windowWidth < 768) {
+      return [imagens[currentIndex]];
+    }
+    
+    // Desktop continua mostrando 4
+    if (imagens.length < 4) return imagens;
+    
+    const visible = [];
+    for (let i = 0; i < 4; i++) {
+      visible.push(imagens[(currentIndex + i) % imagens.length]);
+    }
+    return visible;
   };
 
   const buttonStyle = {
@@ -117,7 +137,7 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
         <div style={{ position: 'relative', width: '100%' }}>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', overflow: 'hidden', position: 'relative', width: '100%' }}>
             {(!imagens || imagens.length === 0) ? (
-            Array.from({ length: 1 }).map((_, i) => (
+            Array.from({ length: windowWidth < 768 ? 1 : 4 }).map((_, i) => (
               <div 
                 key={`placeholder-${i}`}
                 className="card-mobile-img"
