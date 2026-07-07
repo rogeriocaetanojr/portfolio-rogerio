@@ -46,7 +46,7 @@ export function Hero() {
           </div>
         </div>
       </div>
-      <p style={{
+      <p className="hero-subtitle" style={{
         position: 'absolute',
         bottom: '20vh',
         left: '5vw',

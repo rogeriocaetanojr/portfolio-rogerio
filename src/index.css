@@ -186,6 +186,17 @@ a {
     font-size: 1.05rem !important;
     line-height: 1.6 !important;
   }
+
+  /* Hero responsivo */
+  .hero-subtitle {
+    position: static !important;
+    bottom: auto !important;
+    left: auto !important;
+    max-width: 85% !important;
+    text-align: center !important;
+    margin: 1rem auto 0 !important;
+    font-size: 1rem !important;
+  }
 }
 
 .header-mobile-link {
