@@ -15,6 +15,7 @@ const ChevronRight = ({ size = 24 }) => (
 
 export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
   const [isExpanded, setIsExpanded] = useState(false);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
 
@@ -35,12 +36,14 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
 
   const handleNext = () => {
     if (imagens) {
+      setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % imagens.length);
     }
   };
 
   const handlePrev = () => {
     if (imagens) {
+      setDirection(-1);
       setCurrentIndex((prev) => (prev - 1 + imagens.length) % imagens.length);
     }
   };
@@ -49,6 +52,7 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
     if (!isInView || !imagens || imagens.length <= 1) return;
 
     const timer = setInterval(() => {
+      setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % imagens.length);
     }, 3000);
 
@@ -160,26 +164,36 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
               />
             ))
           ) : (
-            <AnimatePresence mode="popLayout">
-              {getVisibleImages().map((img) => (
-                <motion.img 
-                  layout
-                  key={img} 
-                  src={img} 
-                  alt={`${nome} screenshot`} 
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
+            <AnimatePresence mode="popLayout" custom={direction}>
+              {windowWidth < 768 ? (
+                <motion.img
+                  key={currentIndex}
+                  custom={direction}
+                  src={imagens[currentIndex]}
+                  alt={`${nome} screenshot`}
+                  initial={(d) => ({ x: d > 0 ? 200 : -200, opacity: 0, scale: 0.8 })}
+                  animate={{ x: 0, opacity: 1, scale: 1 }}
+                  exit={(d) => ({ x: d > 0 ? -200 : 200, opacity: 0, scale: 0.8 })}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   className="card-mobile-img"
-                  style={{ 
-                    width: 'auto', 
-                    height: '320px',
-                    borderRadius: '16px',
-                    flexShrink: 0
-                  }} 
+                  style={{ width: 'auto', height: '320px', borderRadius: '16px', flexShrink: 0 }}
                 />
-              ))}
+              ) : (
+                getVisibleImages().map((img) => (
+                  <motion.img
+                    layout
+                    key={img}
+                    src={img}
+                    alt={`${nome} screenshot`}
+                    initial={(d) => ({ x: d > 0 ? 200 : -200, opacity: 0, scale: 0.8 })}
+                    animate={{ x: 0, opacity: 1, scale: 1 }}
+                    exit={(d) => ({ x: d > 0 ? -200 : 200, opacity: 0, scale: 0.8 })}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="card-mobile-img"
+                    style={{ width: 'auto', height: '320px', borderRadius: '16px', flexShrink: 0 }}
+                  />
+                ))
+              )}
             </AnimatePresence>
           )}
           </div>
