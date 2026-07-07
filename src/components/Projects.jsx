@@ -80,6 +80,8 @@ export function Projects() {
           ]}
         />
       </div>
+      {/* Espaçador: dá "peso" de scroll para o card 4 travar como os anteriores */}
+      <div style={{ width: '100%', height: '25vh' }} aria-hidden="true" />
     </section>
   )
 }
