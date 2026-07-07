@@ -28,7 +28,7 @@ export function Projects() {
       <div>
         <h2 style={{ fontSize: '2.5rem', textAlign: 'center' }}>Projetos</h2>
       </div>
-      <div style={{ width: '100%', marginTop: '1rem', position: 'sticky', top: '100px', zIndex: 1 }}>
+      <div style={{ width: '100%', marginTop: '1rem', marginBottom: '30vh', position: 'sticky', top: '100px', zIndex: 1 }}>
         <ProjectCardMobile
           numero="01"
           nome="EH BREWING CO"
@@ -37,7 +37,7 @@ export function Projects() {
           imagens={[imgLogin, imgPlanta, imgNovoFermentador, imgAlertas, imgHistorico]}
         />
       </div>
-      <div style={{ width: '100%', marginTop: '1rem', position: 'sticky', top: '100px', zIndex: 2 }}>
+      <div style={{ width: '100%', marginTop: '1rem', marginBottom: '30vh', position: 'sticky', top: '100px', zIndex: 2 }}>
         <ProjectCardMobile
           numero="02"
           nome="TECNOTOOLING"
@@ -51,7 +51,7 @@ export function Projects() {
           ]}
         />
       </div>
-      <div style={{ width: '100%', marginTop: '1rem', position: 'sticky', top: '100px', zIndex: 3 }}>
+      <div style={{ width: '100%', marginTop: '1rem', marginBottom: '30vh', position: 'sticky', top: '100px', zIndex: 3 }}>
         <ProjectCardWeb
           numero="03"
           nome="COMUNIDADE DE ESTUDANTES SENAI"
@@ -66,7 +66,7 @@ export function Projects() {
           ]}
         />
       </div>
-      <div style={{ width: '100%', marginTop: '1rem', position: 'sticky', top: '100px', zIndex: 4 }}>
+      <div style={{ width: '100%', marginTop: '1rem', marginBottom: '30vh', position: 'sticky', top: '100px', zIndex: 4 }}>
         <ProjectCardWeb
           numero="04"
           nome="PIZZARIA"
