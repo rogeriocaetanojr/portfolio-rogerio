@@ -159,26 +159,34 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
             />
           </AnimatePresence>
 
-          {isExpanded && (
-            <div style={{
-              position: 'absolute',
-              bottom: 0,
-              left: 0,
-              width: '100%',
-              height: '75%',
-              backgroundColor: 'rgba(14, 14, 14, 0.85)',
-              backdropFilter: 'blur(8px)',
-              WebkitBackdropFilter: 'blur(8px)',
-              borderTop: '1px solid rgba(255, 255, 255, 0.15)',
-              borderTopLeftRadius: '12px',
-              borderTopRightRadius: '12px',
-              zIndex: 20,
-              padding: '24px'
-            }}>
-              <button onClick={() => setIsExpanded(false)}>Ver menos</button>
-              <p style={{ marginTop: '16px' }}>Conteúdo básico do painel aparecendo!</p>
-            </div>
-          )}
+          <AnimatePresence>
+            {isExpanded && (
+              <motion.div
+                initial={{ y: '100%' }}
+                animate={{ y: 0 }}
+                exit={{ y: '100%' }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+                style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '75%',
+                  backgroundColor: 'rgba(14, 14, 14, 0.85)',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
+                  borderTop: '1px solid rgba(255, 255, 255, 0.15)',
+                  borderTopLeftRadius: '12px',
+                  borderTopRightRadius: '12px',
+                  zIndex: 20,
+                  padding: '24px'
+                }}
+              >
+                <button onClick={() => setIsExpanded(false)}>Ver menos</button>
+                <p style={{ marginTop: '16px' }}>Conteúdo básico do painel aparecendo!</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* Setas de Navegação */}
