@@ -162,6 +162,18 @@ a {
     padding: 16px 20px !important;
     min-height: 70% !important;
   }
+
+  /* Projects section responsivo */
+  .projects-section {
+    padding-bottom: 10vh !important;
+  }
+  .projects-card-wrapper {
+    top: 64px !important;
+    margin-bottom: 18vh !important;
+  }
+  .projects-spacer {
+    height: 15vh !important;
+  }
 }
 
 .header-mobile-link {
