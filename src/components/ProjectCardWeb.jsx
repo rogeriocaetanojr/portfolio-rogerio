@@ -25,6 +25,7 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [isHovered, setIsHovered] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     if (isHovered) return;
@@ -97,6 +98,7 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
             {descricao}
             {' '}
             <span 
+              onClick={() => setIsExpanded(true)}
               style={{
                 marginLeft: '8px',
                 color: '#BBCCD7',
@@ -156,6 +158,22 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
               }}
             />
           </AnimatePresence>
+
+          {isExpanded && (
+            <div style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              width: '100%',
+              height: '75%',
+              backgroundColor: '#111',
+              zIndex: 20,
+              padding: '24px'
+            }}>
+              <button onClick={() => setIsExpanded(false)}>Ver menos</button>
+              <p style={{ marginTop: '16px' }}>Conteúdo básico do painel aparecendo!</p>
+            </div>
+          )}
         </div>
 
         {/* Setas de Navegação */}

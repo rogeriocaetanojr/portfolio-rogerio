@@ -15,6 +15,7 @@ const ChevronRight = ({ size = 24 }) => (
 
 export function ProjectCardMobile({ numero, nome, descricao, imagens }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleNext = () => {
     if (imagens) {
@@ -88,6 +89,7 @@ export function ProjectCardMobile({ numero, nome, descricao, imagens }) {
             {descricao}
             {' '}
             <span 
+              onClick={() => setIsExpanded(true)}
               style={{
                 marginLeft: '8px',
                 color: '#BBCCD7',
@@ -117,7 +119,7 @@ export function ProjectCardMobile({ numero, nome, descricao, imagens }) {
           </button>
         )}
 
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', overflow: 'hidden' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', overflow: 'hidden', position: 'relative' }}>
           {(!imagens || imagens.length === 0) ? (
             Array.from({ length: 4 }).map((_, i) => (
               <div 
@@ -152,6 +154,22 @@ export function ProjectCardMobile({ numero, nome, descricao, imagens }) {
                 />
               ))}
             </AnimatePresence>
+          )}
+
+          {isExpanded && (
+            <div style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              width: '100%',
+              height: '80%',
+              backgroundColor: '#111',
+              zIndex: 20,
+              padding: '24px'
+            }}>
+              <button onClick={() => setIsExpanded(false)}>Ver menos</button>
+              <p style={{ marginTop: '16px' }}>Conteúdo básico do painel aparecendo!</p>
+            </div>
           )}
         </div>
 
