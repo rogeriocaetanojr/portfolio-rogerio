@@ -163,7 +163,12 @@ export function ProjectCardMobile({ numero, nome, descricao, imagens }) {
               left: 0,
               width: '100%',
               height: '80%',
-              backgroundColor: '#111',
+              backgroundColor: 'rgba(14, 14, 14, 0.85)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              borderTop: '1px solid rgba(255, 255, 255, 0.15)',
+              borderTopLeftRadius: '16px',
+              borderTopRightRadius: '16px',
               zIndex: 20,
               padding: '24px'
             }}>

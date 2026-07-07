@@ -166,7 +166,12 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
               left: 0,
               width: '100%',
               height: '75%',
-              backgroundColor: '#111',
+              backgroundColor: 'rgba(14, 14, 14, 0.85)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              borderTop: '1px solid rgba(255, 255, 255, 0.15)',
+              borderTopLeftRadius: '12px',
+              borderTopRightRadius: '12px',
               zIndex: 20,
               padding: '24px'
             }}>
