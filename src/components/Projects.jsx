@@ -46,8 +46,8 @@ export function Projects() {
           imagens={[
             imgTecnoLogin,
             imgTecnoChatbot,
-            imgTecnoUpload,
-            imgTecnoPerfil
+            imgTecnoPerfil,
+            imgTecnoUpload
           ]}
         />
       </div>

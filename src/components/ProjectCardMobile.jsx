@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 
 const ChevronLeft = ({ size = 24 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -17,6 +17,15 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, { amount: 0.3 });
+
+  useEffect(() => {
+    if (!isInView) {
+      setCurrentIndex(0);
+    }
+  }, [isInView]);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -37,14 +46,14 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
   };
 
   useEffect(() => {
-    if (!imagens || imagens.length <= 3) return;
+    if (!isInView || !imagens || imagens.length <= 1) return;
 
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % imagens.length);
     }, 3000);
 
     return () => clearInterval(timer);
-  }, [imagens, currentIndex]);
+  }, [imagens, currentIndex, isInView]);
 
   const getVisibleImages = () => {
     if (!imagens || imagens.length === 0) return [];
@@ -83,7 +92,7 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
   };
 
   return (
-    <div className="project-card-container" style={{ backgroundColor: '#0E0E0E', border: '1px solid rgba(255, 255, 255, 0.18)', borderRadius: '16px', padding: '32px', maxWidth: '1100px', width: '100%', margin: '0 auto', position: 'relative', overflow: 'hidden' }}>
+    <div ref={ref} className="project-card-container" style={{ backgroundColor: '#0E0E0E', border: '1px solid rgba(255, 255, 255, 0.18)', borderRadius: '16px', padding: '32px', maxWidth: '1100px', width: '100%', margin: '0 auto', position: 'relative', overflow: 'hidden' }}>
       <div className="card-mobile-header" style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '24px', height: '110px' }}>
         {numero && (
           <div className="card-mobile-number" style={{ 

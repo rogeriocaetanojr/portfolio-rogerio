@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 
 const carouselImages = [
   'https://via.placeholder.com/1280x720/222222/FFFFFF?text=Imagem+1',
@@ -27,8 +27,18 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
   const [isHovered, setIsHovered] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { amount: 0.3 });
+
   useEffect(() => {
-    if (isHovered) return;
+    if (!isInView) {
+      setCurrentIndex(0);
+      setDirection(1);
+    }
+  }, [isInView]);
+
+  useEffect(() => {
+    if (isHovered || !isInView) return;
 
     const timer = setInterval(() => {
       setDirection(1);
@@ -36,7 +46,7 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
     }, 3000);
 
     return () => clearInterval(timer);
-  }, [currentIndex, isHovered, imagens.length]);
+  }, [currentIndex, isHovered, isInView, imagens.length]);
 
   const nextImage = () => {
     setDirection(1);
@@ -67,7 +77,7 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
   };
 
   return (
-    <div className="project-card-container" style={{
+    <div ref={ref} className="project-card-container" style={{
       backgroundColor: '#0E0E0E',
       border: '1px solid rgba(255, 255, 255, 0.18)',
       borderRadius: '16px',
