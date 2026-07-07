@@ -200,11 +200,14 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
                   padding: '24px 32px',
                   display: 'flex',
                   flexDirection: 'column',
-                  cursor: 'default'
+                  cursor: 'default',
+                  overflowY: 'auto',
+                  maxHeight: '100%'
                 }}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', position: 'sticky', top: 0, zIndex: 10 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', zIndex: 10, flexShrink: 0 }}>
                   <h4 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#FFF', margin: 0 }}>Detalhes do Projeto</h4>
+                  <span onClick={() => setIsExpanded(false)} style={{ color: '#BBCCD7', cursor: 'pointer', fontWeight: '500', fontSize: '0.95rem' }}>Ver menos</span>
                 </div>
                 <div style={{ fontSize: '1rem', color: '#D7E2EA', lineHeight: '1.6' }}>
                   {detalhes ? detalhes.split('\n\n').map((paragraph, index, arr) => (
