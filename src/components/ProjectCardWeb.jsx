@@ -161,48 +161,51 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
             />
             </AnimatePresence>
           </div>
-
-          <AnimatePresence>
-            {isExpanded && (
-              <motion.div
-                initial={{ y: '100%' }}
-                animate={{ y: 0 }}
-                exit={{ y: '100%' }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
-                style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  width: '100%',
-                  height: 'auto',
-                  minHeight: '75%',
-                  backgroundColor: 'rgba(14, 14, 14, 0.85)',
-                  backdropFilter: 'blur(8px)',
-                  WebkitBackdropFilter: 'blur(8px)',
-                  borderTop: '1px solid rgba(255, 255, 255, 0.15)',
-                  borderTopLeftRadius: '12px',
-                  borderTopRightRadius: '12px',
-                  zIndex: 20,
-                  padding: '24px 32px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  cursor: 'default'
-                }}
-              >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', position: 'sticky', top: 0, zIndex: 10 }}>
-                  <h4 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#FFF', margin: 0 }}>Detalhes do Projeto</h4>
-                </div>
-                <div style={{ fontSize: '1rem', color: '#D7E2EA', lineHeight: '1.6' }}>
-                  {detalhes ? detalhes.split('\n\n').map((paragraph, index, arr) => (
-                    <p key={index} style={{ marginBottom: index === arr.length - 1 ? 0 : '16px' }}>
-                      {paragraph}
-                    </p>
-                  )) : null}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
+
+        {/* Detalhes Deslizantes - Agora ocupando 100% da largura do card */}
+        <AnimatePresence>
+          {isExpanded && (
+            <motion.div
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '100%' }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                width: '100%',
+                height: 'auto',
+                minHeight: '80%',
+                backgroundColor: 'rgba(14, 14, 14, 0.85)',
+                backdropFilter: 'blur(8px)',
+                WebkitBackdropFilter: 'blur(8px)',
+                borderTop: '1px solid rgba(255, 255, 255, 0.15)',
+                borderTopLeftRadius: '16px',
+                borderTopRightRadius: '16px',
+                borderBottomLeftRadius: '16px',
+                borderBottomRightRadius: '16px',
+                zIndex: 20,
+                padding: '24px 32px',
+                display: 'flex',
+                flexDirection: 'column',
+                cursor: 'default'
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', position: 'sticky', top: 0, zIndex: 10 }}>
+                <h4 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#FFF', margin: 0 }}>Detalhes do Projeto</h4>
+              </div>
+              <div style={{ fontSize: '1rem', color: '#D7E2EA', lineHeight: '1.6' }}>
+                {detalhes ? detalhes.split('\n\n').map((paragraph, index, arr) => (
+                  <p key={index} style={{ marginBottom: index === arr.length - 1 ? 0 : '16px' }}>
+                    {paragraph}
+                  </p>
+                )) : null}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Setas de Navegação */}
         <button
