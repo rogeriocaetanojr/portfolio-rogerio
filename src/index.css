@@ -195,7 +195,7 @@ a {
     padding-bottom: 10vh !important;
   }
   .projects-card-wrapper {
-    top: 64px !important;
+    top: calc(50vh - 260px) !important;
     margin-bottom: 18vh !important;
   }
   .projects-spacer {
