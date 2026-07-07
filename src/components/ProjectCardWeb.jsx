@@ -100,7 +100,7 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
             {descricao}
             {' '}
             <span 
-              onClick={() => setIsExpanded(true)}
+              onClick={() => setIsExpanded(!isExpanded)}
               style={{
                 marginLeft: '8px',
                 color: '#BBCCD7',
@@ -112,7 +112,7 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
               onMouseEnter={(e) => e.currentTarget.style.textDecoration = 'underline'}
               onMouseLeave={(e) => e.currentTarget.style.textDecoration = 'none'}
             >
-              Ver mais
+              {isExpanded ? 'Ver menos' : 'Ver mais'}
             </span>
           </p>
         </div>
@@ -191,26 +191,6 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', position: 'sticky', top: 0, zIndex: 10 }}>
                   <h4 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#FFF', margin: 0 }}>Detalhes do Projeto</h4>
-                  <button 
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setIsExpanded(false);
-                    }}
-                    style={{
-                      background: 'none',
-                      border: 'none',
-                      color: '#BBCCD7',
-                      cursor: 'pointer',
-                      fontSize: '1rem',
-                      fontWeight: '500',
-                      padding: 0,
-                      textDecoration: 'none'
-                    }}
-                    onMouseEnter={(e) => e.currentTarget.style.textDecoration = 'underline'}
-                    onMouseLeave={(e) => e.currentTarget.style.textDecoration = 'none'}
-                  >
-                    Ver menos
-                  </button>
                 </div>
                 <div style={{ fontSize: '1rem', color: '#D7E2EA', lineHeight: '1.6' }}>
                   {detalhes ? detalhes.split('\n\n').map((paragraph, index, arr) => (
