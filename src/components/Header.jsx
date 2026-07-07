@@ -31,6 +31,7 @@ export function Header() {
         <a href="#sobre">Sobre</a>
         <a href="#projetos">Projetos</a>
         <a href="#contato">Contato</a>
+        <a href={`${import.meta.env.BASE_URL}CV - Rogério Caetano.pdf`} target="_blank" rel="noopener noreferrer">Currículo</a>
       </div>
 
       {/* Botão hambúrguer (mobile) */}
@@ -72,6 +73,7 @@ export function Header() {
           <a href="#sobre" onClick={handleLinkClick} className="header-mobile-link">Sobre</a>
           <a href="#projetos" onClick={handleLinkClick} className="header-mobile-link">Projetos</a>
           <a href="#contato" onClick={handleLinkClick} className="header-mobile-link">Contato</a>
+          <a href={`${import.meta.env.BASE_URL}CV - Rogério Caetano.pdf`} target="_blank" rel="noopener noreferrer" onClick={handleLinkClick} className="header-mobile-link">Currículo</a>
         </div>
       )}
     </nav>
