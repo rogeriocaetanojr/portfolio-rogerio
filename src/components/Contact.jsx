@@ -5,11 +5,11 @@ export function Contact() {
     <section id="contato" style={{ minHeight: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', padding: '60px 5vw 3rem', scrollMarginTop: '100px' }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem' }}>
         <div style={{ textAlign: 'center' }}>
-          <h2>Contato</h2>
-          <p style={{ color: '#9BA8B5', fontSize: '1.15rem', marginTop: '0.5rem' }}>Me encontre em um dos canais abaixo.</p>
+          <h2 className="contact-title">Contato</h2>
+          <p className="contact-subtitle" style={{ color: '#9BA8B5', fontSize: '1.15rem', marginTop: '0.5rem' }}>Me encontre em um dos canais abaixo.</p>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: '2.5rem' }}>
+        <div className="contact-links" style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: '2.5rem' }}>
           <a href="https://wa.me/41992522036" target="_blank" rel="noopener noreferrer" className="link-contato">
             <FaWhatsapp size={24} /> WhatsApp
           </a>
