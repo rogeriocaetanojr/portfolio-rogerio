@@ -69,7 +69,7 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
   };
 
   return (
-    <div style={{ backgroundColor: '#0E0E0E', border: '1px solid rgba(255, 255, 255, 0.18)', borderRadius: '16px', padding: '32px', maxWidth: '1100px', width: '100%', margin: '0 auto', position: 'relative', overflow: 'hidden' }}>
+    <div className="project-card-container" style={{ backgroundColor: '#0E0E0E', border: '1px solid rgba(255, 255, 255, 0.18)', borderRadius: '16px', padding: '32px', maxWidth: '1100px', width: '100%', margin: '0 auto', position: 'relative', overflow: 'hidden' }}>
       <div className="card-mobile-header" style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '24px', height: '110px' }}>
         {numero && (
           <div className="card-mobile-number" style={{ 
@@ -107,7 +107,7 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
         </div>
       </div>
       
-      <div style={{ marginTop: '24px', position: 'relative' }}>
+      <div className="card-mobile-carousel-wrapper" style={{ marginTop: '24px', position: 'relative' }}>
         {imagens && imagens.length > 3 && (
           <button 
             onClick={handlePrev}

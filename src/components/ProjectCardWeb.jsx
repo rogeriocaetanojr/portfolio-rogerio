@@ -67,7 +67,7 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
   };
 
   return (
-    <div style={{
+    <div className="project-card-container" style={{
       backgroundColor: '#0E0E0E',
       border: '1px solid rgba(255, 255, 255, 0.18)',
       borderRadius: '16px',
@@ -120,6 +120,7 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
 
       {/* Carrossel - Etapa 2: Estado e Setas */}
       <div
+        className="card-web-carousel-wrapper"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{

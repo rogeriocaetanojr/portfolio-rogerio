@@ -104,11 +104,21 @@ a {
     display: block !important;
   }
 
+  /* Padronização de altura dos cards de projeto para o Sticky funcionar perfeitamente */
+  .project-card-container {
+    height: 520px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    padding: 24px !important;
+  }
+
   /* ProjectCardMobile responsivo */
   .card-mobile-header {
     height: auto !important;
     min-height: 0 !important;
     gap: 16px !important;
+    margin-bottom: 0 !important;
   }
   .card-mobile-number {
     font-size: 2.8rem !important;
@@ -116,8 +126,17 @@ a {
   .card-mobile-title {
     font-size: 1.3rem !important;
   }
+  /* O carrossel cresce para ocupar o espaço livre de forma flexível */
+  .card-mobile-carousel-wrapper {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    margin-top: 16px !important;
+  }
   .card-mobile-img {
-    height: 240px !important;
+    height: 100% !important;
+    max-height: 300px !important;
   }
   .card-mobile-btn-prev {
     left: 8px !important;
@@ -138,12 +157,20 @@ a {
     height: auto !important;
     min-height: 0 !important;
     gap: 16px !important;
+    margin-bottom: 0 !important;
   }
   .card-web-number {
     font-size: 2.8rem !important;
   }
   .card-web-title {
     font-size: 1.3rem !important;
+  }
+  .card-web-carousel-wrapper {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    margin-top: 16px !important;
   }
   .card-web-carousel {
     max-width: 100% !important;
