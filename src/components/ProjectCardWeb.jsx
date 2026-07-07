@@ -76,7 +76,9 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
       width: '100%',
       margin: '0 auto',
       display: 'flex',
-      flexDirection: 'column'
+      flexDirection: 'column',
+      position: 'relative',
+      overflow: 'hidden'
     }}>
       {/* Cabeçalho */}
       <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '24px', height: '110px' }}>
@@ -134,11 +136,11 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
           aspectRatio: '16/9',
           backgroundColor: '#1A1A1A',
           borderRadius: '12px',
-          overflow: 'hidden'
         }}>
-          {/* Imagem Principal */}
-          <AnimatePresence mode="popLayout" custom={direction}>
-            <motion.div
+          {/* Container interno para as imagens com overflow hidden */}
+          <div style={{ width: '100%', height: '100%', overflow: 'hidden', borderRadius: '12px', position: 'relative' }}>
+            <AnimatePresence mode="popLayout" custom={direction}>
+              <motion.div
               key={currentIndex}
               custom={direction}
               initial={(d) => ({ x: d > 0 ? 200 : -200, opacity: 0, scale: 0.8 })}
@@ -157,7 +159,8 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
                 backgroundPosition: 'center'
               }}
             />
-          </AnimatePresence>
+            </AnimatePresence>
+          </div>
 
           <AnimatePresence>
             {isExpanded && (
@@ -171,7 +174,8 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
                   bottom: 0,
                   left: 0,
                   width: '100%',
-                  height: '75%',
+                  height: 'auto',
+                  minHeight: '75%',
                   backgroundColor: 'rgba(14, 14, 14, 0.85)',
                   backdropFilter: 'blur(8px)',
                   WebkitBackdropFilter: 'blur(8px)',
@@ -185,7 +189,7 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
                   cursor: 'default'
                 }}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', position: 'sticky', top: 0, zIndex: 10 }}>
                   <h4 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#FFF', margin: 0 }}>Detalhes do Projeto</h4>
                   <button 
                     onClick={(e) => {
@@ -208,14 +212,12 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
                     Ver menos
                   </button>
                 </div>
-                <div style={{ overflowY: 'auto', flex: 1, paddingRight: '8px' }}>
-                  <div style={{ fontSize: '1rem', color: '#D7E2EA', lineHeight: '1.6' }}>
-                    {detalhes ? detalhes.split('\n\n').map((paragraph, index, arr) => (
-                      <p key={index} style={{ marginBottom: index === arr.length - 1 ? 0 : '16px' }}>
-                        {paragraph}
-                      </p>
-                    )) : null}
-                  </div>
+                <div style={{ fontSize: '1rem', color: '#D7E2EA', lineHeight: '1.6' }}>
+                  {detalhes ? detalhes.split('\n\n').map((paragraph, index, arr) => (
+                    <p key={index} style={{ marginBottom: index === arr.length - 1 ? 0 : '16px' }}>
+                      {paragraph}
+                    </p>
+                  )) : null}
                 </div>
               </motion.div>
             )}

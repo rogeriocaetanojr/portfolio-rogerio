@@ -69,7 +69,7 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
   };
 
   return (
-    <div style={{ backgroundColor: '#0E0E0E', border: '1px solid rgba(255, 255, 255, 0.18)', borderRadius: '16px', padding: '32px', maxWidth: '1100px', width: '100%', margin: '0 auto' }}>
+    <div style={{ backgroundColor: '#0E0E0E', border: '1px solid rgba(255, 255, 255, 0.18)', borderRadius: '16px', padding: '32px', maxWidth: '1100px', width: '100%', margin: '0 auto', position: 'relative', overflow: 'hidden' }}>
       <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '24px', height: '110px' }}>
         {numero && (
           <div style={{ 
@@ -119,8 +119,9 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
           </button>
         )}
 
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', overflow: 'hidden', position: 'relative' }}>
-          {(!imagens || imagens.length === 0) ? (
+        <div style={{ position: 'relative', width: '100%' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', overflow: 'hidden', position: 'relative', width: '100%' }}>
+            {(!imagens || imagens.length === 0) ? (
             Array.from({ length: 4 }).map((_, i) => (
               <div 
                 key={`placeholder-${i}`}
@@ -155,6 +156,7 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
               ))}
             </AnimatePresence>
           )}
+          </div>
 
           <AnimatePresence>
             {isExpanded && (
@@ -168,7 +170,8 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
                   bottom: 0,
                   left: 0,
                   width: '100%',
-                  height: '80%',
+                  height: 'auto',
+                  minHeight: '80%',
                   backgroundColor: 'rgba(14, 14, 14, 0.85)',
                   backdropFilter: 'blur(8px)',
                   WebkitBackdropFilter: 'blur(8px)',
@@ -182,7 +185,7 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
                   cursor: 'default'
                 }}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', position: 'sticky', top: 0, zIndex: 10 }}>
                   <h4 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#FFF', margin: 0 }}>Detalhes do Projeto</h4>
                   <button 
                     onClick={(e) => {
@@ -205,14 +208,12 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
                     Ver menos
                   </button>
                 </div>
-                <div style={{ overflowY: 'auto', flex: 1, paddingRight: '8px' }}>
-                  <div style={{ fontSize: '1rem', color: '#D7E2EA', lineHeight: '1.6' }}>
-                    {detalhes ? detalhes.split('\n\n').map((paragraph, index, arr) => (
-                      <p key={index} style={{ marginBottom: index === arr.length - 1 ? 0 : '16px' }}>
-                        {paragraph}
-                      </p>
-                    )) : null}
-                  </div>
+                <div style={{ fontSize: '1rem', color: '#D7E2EA', lineHeight: '1.6' }}>
+                  {detalhes ? detalhes.split('\n\n').map((paragraph, index, arr) => (
+                    <p key={index} style={{ marginBottom: index === arr.length - 1 ? 0 : '16px' }}>
+                      {paragraph}
+                    </p>
+                  )) : null}
                 </div>
               </motion.div>
             )}
