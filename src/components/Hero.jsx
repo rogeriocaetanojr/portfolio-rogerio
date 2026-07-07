@@ -21,14 +21,15 @@ export function Hero() {
   }
 
   return (
-    <section id="inicio" style={{ position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', textAlign: 'center', scrollMarginTop: '100px', padding: '0.8rem 5vw 0' }}>
-      <div style={{ width: '100%', display: 'flex', flexDirection: 'column', flex: 1 }}>
-        <h1 className="titulo-gradiente" style={{ fontSize: 'clamp(2.5rem, 9vw, 8rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: '0.5rem', letterSpacing: '-0.04em', flexShrink: 0 }}>
+    <section id="inicio" className="hero-section" style={{ position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', textAlign: 'center', scrollMarginTop: '100px', padding: '0.8rem 5vw 0' }}>
+      <div className="hero-content-wrapper" style={{ width: '100%', display: 'flex', flexDirection: 'column', flex: 1 }}>
+        <h1 className="titulo-gradiente hero-title" style={{ fontSize: 'clamp(2.5rem, 9vw, 8rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: '0.5rem', letterSpacing: '-0.04em', flexShrink: 0 }}>
           OI, EU SOU O ROGÉRIO
         </h1>
         <div
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
+          className="hero-img-wrapper"
           style={{ width: '100%', flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}
         >
           <div className="animacao-flutuacao" style={{ width: '100%', maxWidth: '450px', display: 'flex', justifyContent: 'center' }}>
