@@ -10,17 +10,17 @@ export function Contact() {
         </div>
 
         <div className="contact-links" style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: '2.5rem' }}>
-          <a href="https://wa.me/41992522036" target="_blank" rel="noopener noreferrer" className="link-contato">
-            <FaWhatsapp size={24} /> WhatsApp
+          <a href="https://wa.me/41992522036" target="_blank" rel="noopener noreferrer" className="link-contato" aria-label="WhatsApp">
+            <FaWhatsapp size={24} />
           </a>
-          <a href="https://linkedin.com/in/rogeriocaetanojr/" target="_blank" rel="noopener noreferrer" className="link-contato">
-            <FaLinkedin size={24} /> LinkedIn
+          <a href="https://linkedin.com/in/rogeriocaetanojr/" target="_blank" rel="noopener noreferrer" className="link-contato" aria-label="LinkedIn">
+            <FaLinkedin size={24} />
           </a>
-          <a href="https://github.com/rogeriocaetanojr" target="_blank" rel="noopener noreferrer" className="link-contato">
-            <FaGithub size={24} /> GitHub
+          <a href="https://github.com/rogeriocaetanojr" target="_blank" rel="noopener noreferrer" className="link-contato" aria-label="GitHub">
+            <FaGithub size={24} />
           </a>
-          <a href="mailto:rcaetanojunior@gmail.com" className="link-contato">
-            <FaEnvelope size={24} /> Email
+          <a href="mailto:rcaetanojunior@gmail.com" className="link-contato" aria-label="Email">
+            <FaEnvelope size={24} />
           </a>
         </div>
       </div>
