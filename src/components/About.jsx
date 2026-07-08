@@ -4,7 +4,11 @@ export function About() {
     lineHeight: '1.8',
     color: '#D7E2EA',
     marginBottom: '20px',
-    textAlign: 'left',
+    textAlign: 'justify',
+    hyphens: 'auto',
+    WebkitHyphens: 'auto',
+    msHyphens: 'auto',
+    wordBreak: 'break-word',
   }
 
   return (
