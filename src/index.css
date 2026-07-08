@@ -196,10 +196,10 @@ a {
   }
   .projects-card-wrapper {
     top: calc(50vh - 260px) !important;
-    margin-bottom: 18vh !important;
+    margin-bottom: 80vh !important;
   }
   .projects-spacer {
-    height: 15vh !important;
+    height: 80vh !important;
   }
 
   /* About responsivo */
