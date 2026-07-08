@@ -28,6 +28,7 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
   const [isExpanded, setIsExpanded] = useState(false);
 
   const ref = useRef(null);
+  const initialScrollY = useRef(0);
   const isInView = useInView(ref, { amount: 0.3 });
 
   useEffect(() => {
@@ -36,6 +37,22 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
       setDirection(1);
     }
   }, [isInView, isExpanded]);
+
+  useEffect(() => {
+    if (isExpanded) {
+      initialScrollY.current = window.scrollY;
+      
+      const handleScroll = () => {
+        const diff = Math.abs(window.scrollY - initialScrollY.current);
+        if (diff > 80) {
+          setIsExpanded(false);
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      return () => window.removeEventListener('scroll', handleScroll);
+    }
+  }, [isExpanded]);
 
   useEffect(() => {
     if (isHovered || !isInView || isExpanded) return;
