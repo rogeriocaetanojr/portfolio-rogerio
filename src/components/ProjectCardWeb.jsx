@@ -31,14 +31,14 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
   const isInView = useInView(ref, { amount: 0.3 });
 
   useEffect(() => {
-    if (!isInView) {
+    if (!isInView && !isExpanded) {
       setCurrentIndex(0);
       setDirection(1);
     }
-  }, [isInView]);
+  }, [isInView, isExpanded]);
 
   useEffect(() => {
-    if (isHovered || !isInView) return;
+    if (isHovered || !isInView || isExpanded) return;
 
     const timer = setInterval(() => {
       setDirection(1);
@@ -46,7 +46,7 @@ export function ProjectCardWeb({ numero, nome = "Novo Projeto", descricao = "Des
     }, 3000);
 
     return () => clearInterval(timer);
-  }, [currentIndex, isHovered, isInView, imagens.length]);
+  }, [currentIndex, isHovered, isInView, imagens.length, isExpanded]);
 
   const nextImage = () => {
     setDirection(1);

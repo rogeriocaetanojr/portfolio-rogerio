@@ -23,10 +23,10 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
   const isInView = useInView(ref, { amount: 0.3 });
 
   useEffect(() => {
-    if (!isInView) {
+    if (!isInView && !isExpanded) {
       setCurrentIndex(0);
     }
-  }, [isInView]);
+  }, [isInView, isExpanded]);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -49,7 +49,7 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
   };
 
   useEffect(() => {
-    if (!isInView || !imagens || imagens.length <= 1) return;
+    if (!isInView || !imagens || imagens.length <= 1 || isExpanded) return;
 
     const timer = setInterval(() => {
       setDirection(1);
@@ -57,7 +57,7 @@ export function ProjectCardMobile({ numero, nome, descricao, detalhes, imagens }
     }, 3000);
 
     return () => clearInterval(timer);
-  }, [imagens, currentIndex, isInView]);
+  }, [imagens, currentIndex, isInView, isExpanded]);
 
   const getVisibleImages = () => {
     if (!imagens || imagens.length === 0) return [];
